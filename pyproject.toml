@@ -1,0 +1,36 @@
+[build-system]
+requires = ["uv_build"]
+build-backend = "uv_build"
+
+[project]
+name = "hough-3d-line-detector"
+description = "Detect lines in 3D point clouds using an iterative Hough transform (Dalitz et al., 2017)"
+readme = "README.md"
+requires-python = ">=3.14"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Raj Magesh Gauthaman", email = "hough-3d-line-detector@raj-magesh.org" },
+]
+keywords = ["iterative Hough transform", "line detection", "3D point clouds"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+    "Natural Language :: English",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Image Processing",
+    "Typing :: Typed",
+]
+urls = { source = "https://codeberg.org/raj-magesh/hough-3d-line-detector" }
+dependencies = ["numpy", "scipy"]
+import-names = ["hough_3d_line_detector"]
+version = "1.0.0"
+
+[dependency-groups]
+dev = ["ruff", "pytest", "sphinx"]
+
+[tool.uv]
+required-environments = [
+    "sys_platform == 'linux' and platform_machine == 'x86_64'",
+]
