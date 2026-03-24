@@ -43,7 +43,11 @@ class IterativeHoughTransform:
             dtype=np.int64,
         )
 
-    def __call__(self, /, points: FloatArray) -> list[tuple[FloatArray, FloatArray]]:
+    def __call__(
+        self,
+        /,
+        points: FloatArray,
+    ) -> list[tuple[tuple[FloatArray, FloatArray], FloatArray]]:
         points = self._center_points(points)
 
         lines = []
