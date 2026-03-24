@@ -15,13 +15,16 @@ def find_nearest_points_on_line(
     points: FloatArray,
     *,
     line: tuple[FloatArray, FloatArray],
-    return_distances: bool = False,
 ) -> FloatArray | tuple[FloatArray, FloatArray]:
     a, b = line
-    t = b @ (points - a).T / np.linalg.norm(b)
-    if return_distances:
-        d = np.linalg.norm(
-            convert_parameters_to_coordinates(t, line=line) - points, axis=-1
-        )
-        return t, d
-    return t
+    return b @ (points - a).T / np.linalg.norm(b)
+
+
+def compute_distances_to_line(
+    points: FloatArray, *, line: tuple[FloatArray, FloatArray]
+) -> FloatArray:
+    t = find_nearest_points_on_line(points, line=line)
+    return np.linalg.norm(
+        convert_parameters_to_coordinates(t, line=line) - points,
+        axis=-1,
+    )

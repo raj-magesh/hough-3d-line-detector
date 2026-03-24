@@ -2,7 +2,10 @@ import numpy as np
 import numpy.typing as npt
 
 from ._discretize_directions import create_discretized_directions
-from ._utilities import FloatArray, find_nearest_points_on_line
+from ._utilities import (
+    FloatArray,
+    compute_distances_to_line,
+)
 
 
 def _create_roberts_coefficients(directions: FloatArray) -> FloatArray:
@@ -117,5 +120,5 @@ class IterativeHoughTransform:
         points: FloatArray,
         line: tuple[FloatArray, FloatArray],
     ) -> FloatArray:
-        _, d = find_nearest_points_on_line(points, line=line, return_distances=True)
+        d = compute_distances_to_line(points, line=line)
         return d < self._diagonal / self._n_grid
