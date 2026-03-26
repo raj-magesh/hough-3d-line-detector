@@ -47,7 +47,7 @@ class IterativeHoughTransform:
         self,
         /,
         points: FloatArray,
-    ) -> list[tuple[tuple[FloatArray, FloatArray], FloatArray]]:
+    ) -> list[tuple[FloatArray, FloatArray]]:
         points = self._center_points(points)
 
         lines = []
@@ -56,7 +56,8 @@ class IterativeHoughTransform:
 
         while True:
             i_direction, i_x_prime, i_y_prime = np.unravel_index(
-                np.argmax(self._votes), self._votes.shape
+                np.argmax(self._votes),
+                self._votes.shape,
             )
             a = np.einsum(
                 "rs,s->r",
@@ -83,7 +84,7 @@ class IterativeHoughTransform:
             self._votes = self._hough_transform(points_on_line, increase_votes=False)
 
             if len(points_on_line) >= self.min_votes:
-                lines.append(((a + self._offset, b), points_on_line + self._offset))
+                lines.append((a + self._offset, b))
 
             if ((self.max_lines is not None) and (len(lines) == self.max_lines)) or (
                 len(points_on_line) < self.min_votes
