@@ -1,5 +1,4 @@
 import numpy as np
-import numpy.typing as npt
 
 from ._discretize_directions import create_discretized_directions
 from ._utilities import (
@@ -119,7 +118,7 @@ class IterativeHoughTransform:
         points: FloatArray,
         *,
         increase_votes: bool,
-    ) -> npt.NDArray[np.int64]:
+    ) -> None:
         xy_prime = np.einsum("dqr,pq->dpr", self._coefficients, points, optimize=True)
 
         # get (x', y') grid indices from primed coordinates
