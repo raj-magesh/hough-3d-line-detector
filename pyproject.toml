@@ -1,5 +1,5 @@
 [build-system]
-requires = ["uv_build==0.11.3"]
+requires = ["uv_build<0.12"]
 build-backend = "uv_build"
 
 [project]
@@ -28,7 +28,7 @@ import-names = ["hough_3d_line_detector"]
 version = "2.0.0"
 
 [dependency-groups]
-dev = ["ruff", "pytest", "sphinx", "scipy-stubs"]
+dev = ["ruff", "ty", "pytest", "sphinx", "scipy-stubs"]
 
 [tool.uv]
 required-environments = [
