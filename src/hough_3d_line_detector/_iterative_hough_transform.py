@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 import numpy as np
 
 from ._discretize_directions import create_discretized_directions
@@ -125,7 +123,7 @@ class IterativeHoughTransform:
 
         # get (x', y') grid indices from primed coordinates
         indices = np.floor(self._n_grid * (xy_prime / self._diagonal + 0.5)).astype(
-            np.uint32
+            np.uint32,
         )
 
         for i_direction, indices_ in enumerate(indices):

@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 import itertools
 from typing import TYPE_CHECKING
 
@@ -47,7 +45,7 @@ def subdivide_icosahedron(
 
     neighbors = find_unique_pairs(adjacency_matrix)
     new_vertices = normalize_to_unit_length(
-        vertices[neighbors[:, 0]] + vertices[neighbors[:, 1]]
+        vertices[neighbors[:, 0]] + vertices[neighbors[:, 1]],
     )
     return np.concatenate([vertices, new_vertices], axis=0)
 
@@ -61,8 +59,8 @@ def create_icosahedron_vertices() -> FloatArray:
                     ((0, 1, R), (1, R, 0), (R, 0, 1)),
                     list(itertools.product([-1, +1], repeat=3)),
                 )
-            })
-        )
+            }),
+        ),
     )
 
 
@@ -98,5 +96,5 @@ def create_discretized_directions(
     atol: float = 1e-4,
 ) -> FloatArray:
     return remove_redundant_directions(
-        create_tessellated_icosahedron_vertices(n_divisions=n_divisions, atol=atol)
+        create_tessellated_icosahedron_vertices(n_divisions=n_divisions, atol=atol),
     )

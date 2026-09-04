@@ -7,7 +7,7 @@ name = "hough-3d-line-detector"
 version = "2.0.0"
 description = "Detect lines in 3D point clouds using an iterative Hough transform (Dalitz et al., 2017)"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.14.7"
 license = "GPL-3.0-or-later"
 license-files = ["LICENSE"]
 authors = [
