@@ -1,7 +1,7 @@
 import numpy as np
 
-from ._discretize_directions import create_discretized_directions
-from ._utilities import (
+from hough_3d_line_detector._discretize_directions import create_discretized_directions
+from hough_3d_line_detector._utilities import (
     FloatArray,
     compute_distances_to_line,
 )

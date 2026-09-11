@@ -6,7 +6,7 @@ import numpy.typing as npt
 from scipy.spatial.distance import pdist, squareform
 
 if TYPE_CHECKING:
-    from ._utilities import FloatArray
+    from hough_3d_line_detector._utilities import FloatArray
 
 R = (1 + np.sqrt(5)) / 2
 N_VERTICES_ICOSAHEDRON = 12
