@@ -34,3 +34,20 @@ dev = ["ruff", "ty", "pytest", "sphinx", "scipy-stubs"]
 required-environments = [
     "sys_platform == 'linux' and platform_machine == 'x86_64'",
 ]
+
+[tool.ruff]
+preview = true
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "missing-copyright-notice",
+    "line-too-long",
+    "missing-todo-link",
+    "missing-todo-author",
+]
+pydocstyle.convention = "numpy"
+typing-modules = ["numpy.typing"]
+
+[tool.deptry]
+known_first_party = ["hough_3d_line_detector"]
